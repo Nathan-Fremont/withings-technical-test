@@ -9,7 +9,7 @@ data class ImageListSearch(
 )
 
 data class ImageSearch(
-    val id: Int,
+    val id: Long,
     val pageURL: String,
     val type: String,
     val tags: String,

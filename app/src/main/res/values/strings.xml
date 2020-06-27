@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WithingsTechnicalTest</string>
+    <string name="fragment_search_images_error_selected_not_enough">You need to select at least 2 images</string>
 </resources>
