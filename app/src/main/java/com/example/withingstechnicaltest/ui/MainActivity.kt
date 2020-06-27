@@ -1,7 +1,8 @@
-package com.example.withingstechnicaltest
+package com.example.withingstechnicaltest.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.withingstechnicaltest.R
 
 class MainActivity : AppCompatActivity() {
 
