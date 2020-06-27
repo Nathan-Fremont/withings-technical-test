@@ -25,6 +25,10 @@ android {
         }
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
 }
 
 ext {
@@ -80,4 +84,9 @@ dependencies {
      * Logging
      */
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    /**
+     * Layout
+     */
+    implementation 'com.synnapps:carouselview:0.1.5'
 }

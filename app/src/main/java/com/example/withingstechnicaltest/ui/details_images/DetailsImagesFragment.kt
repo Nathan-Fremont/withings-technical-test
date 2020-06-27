@@ -5,9 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.example.withingstechnicaltest.R
+import com.example.withingstechnicaltest.ui.search_images.model.ImageSearchUi
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_details_images.*
 
-class DetailsImagesFragment: Fragment() {
+class DetailsImagesFragment : Fragment() {
+
+    private val args: DetailsImagesFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,5 +26,16 @@ class DetailsImagesFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val selectedImages = args.selectedImages
+        fragment_details_images_carousel.apply {
+            setImageListener { position, imageView ->
+                Picasso
+                    .get()
+                    .load(selectedImages[position].largeImageURL)
+                    .into(imageView)
+            }
+
+            pageCount = selectedImages.size
+        }
     }
 }
