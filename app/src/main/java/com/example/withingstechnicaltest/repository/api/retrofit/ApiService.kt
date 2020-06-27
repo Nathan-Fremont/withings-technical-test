@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET
+    @GET("api")
     fun searchImages(@Query(value = "q") query: String): Single<ImageListSearchApi>
 }

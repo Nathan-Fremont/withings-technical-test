@@ -9,6 +9,7 @@ class ImageSearchUiMapper : BaseUiMapper<ImageListSearch, List<ImageSearchUi>>()
         return domain.hits
             .map { imageSearch ->
                 ImageSearchUi(
+                    imageSearch.id,
                     imageSearch.pageURL,
                     imageSearch.type,
                     imageSearch.tags,
