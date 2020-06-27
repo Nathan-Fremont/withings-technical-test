@@ -1,7 +1,6 @@
 package com.example.withingstechnicaltest.ui.search_images.view
 
 import android.view.View
-import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.withingstechnicaltest.ui.search_images.model.ImageSearchUi
 import com.squareup.picasso.Picasso
@@ -13,12 +12,10 @@ class SearchImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
             .get()
             .load(imageSearchUi.webformatURL)
             .into(itemView.holder_search_image_preview)
-        itemView.isActivated = isActivated
+        itemView.holder_search_image_checkbox.isChecked = isActivated
     }
 
-    fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
-        object : ItemDetailsLookup.ItemDetails<Long>() {
-            override fun getPosition(): Int = adapterPosition
-            override fun getSelectionKey(): Long? = itemId
-        }
+    fun clicked() {
+        itemView.holder_search_image_checkbox.isChecked = !itemView.holder_search_image_checkbox.isChecked
+    }
 }
