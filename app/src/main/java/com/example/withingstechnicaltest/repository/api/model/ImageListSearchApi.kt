@@ -7,7 +7,7 @@ data class ImageListSearchApi(
 )
 
 data class ImageSearchApi(
-    val id: Int,
+    val id: Long,
     val pageURL: String,
     val type: String,
     val tags: String,

@@ -6,5 +6,17 @@
     <fragment
         android:id="@+id/searchImagesFragment"
         android:name="com.example.withingstechnicaltest.ui.search_images.SearchImagesFragment"
-        android:label="SearchImagesFragment" />
+        android:label="SearchImagesFragment" >
+        <action
+            android:id="@+id/action_searchImagesFragment_to_detailsImagesFragment"
+            app:destination="@id/detailsImagesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsImagesFragment"
+        android:name="com.example.withingstechnicaltest.ui.details_images.DetailsImagesFragment"
+        android:label="DetailsImagesFragment" >
+        <argument
+            android:name="selectedImages"
+            app:argType="com.example.withingstechnicaltest.ui.search_images.model.ImageSearchUi[]" />
+    </fragment>
 </navigation>
