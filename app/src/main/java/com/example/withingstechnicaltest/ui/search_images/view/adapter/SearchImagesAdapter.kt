@@ -2,20 +2,14 @@ package com.example.withingstechnicaltest.ui.search_images.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.example.withingstechnicaltest.R
 import com.example.withingstechnicaltest.ui.search_images.model.ImageSearchUi
 import com.example.withingstechnicaltest.ui.search_images.view.SearchImageViewHolder
 import timber.log.Timber
 
 class SearchImagesAdapter(private val selectedItems: ArrayList<ImageSearchUi>) : ListAdapter<ImageSearchUi, SearchImageViewHolder>(diffCallback) {
-
-    init {
-        setHasStableIds(true)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchImageViewHolder {
         val view =
@@ -26,12 +20,12 @@ class SearchImagesAdapter(private val selectedItems: ArrayList<ImageSearchUi>) :
             itemView.setOnClickListener {
                 val imageUi = getItem(adapterPosition)
                 Timber.d("Click on item at position $adapterPosition")
-                if (itemView.isActivated) {
+                if (selectedItems.contains(imageUi)) {
                     selectedItems.remove(imageUi)
                 } else {
                     selectedItems.add(imageUi)
                 }
-                itemView.isActivated = !itemView.isActivated
+                clicked()
             }
         }
         return holder
